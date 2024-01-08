@@ -4,12 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import unibuc.RecipeManagement.entity.NutritionalValue;
+
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class IngredientDto {
+public class RecipeDisplayDto {
+
     private String name;
-    private String unitOfMeasure;
+
+    private Integer cookingTime;
+
+    private String description;
+
+    private List<RecipeIngredientsDto> ingredients;
+
+    private List<TagDto> tags;
 }

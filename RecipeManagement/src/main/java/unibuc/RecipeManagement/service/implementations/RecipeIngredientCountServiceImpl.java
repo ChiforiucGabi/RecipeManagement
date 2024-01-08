@@ -22,16 +22,13 @@ public class RecipeIngredientCountServiceImpl implements RecipeIngredientCountSe
     @Autowired
     private IngredientRepository ingredientRepository;
 
-    @Autowired
-    private RecipeRepository recipeRepository;
 
     @Override
     public RecipeIngredientCountDto save(RecipeIngredientCountDto entity) {
         var ingredientOptional = ingredientRepository.findById(entity.getIngredientId());
-
         if(ingredientOptional.isEmpty())
         {
-            throw new DataNotFoundException(Constants.RECIPE_OR_INGREDIENT_NOT_FOUND);
+            throw new DataNotFoundException(Constants.INGREDIENT_NOT_FOUND);
         }
 
 

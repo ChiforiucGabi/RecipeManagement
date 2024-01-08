@@ -1,5 +1,6 @@
 package unibuc.RecipeManagement.mapper;
 
+import unibuc.RecipeManagement.dto.RecipeDisplayDto;
 import unibuc.RecipeManagement.dto.RecipeDto;
 import unibuc.RecipeManagement.entity.Recipe;
 
@@ -10,6 +11,7 @@ public class RecipeMapper {
                 .name(recipe.getName())
                 .description(recipe.getDescription())
                 .cookingTime(recipe.getCookingTime())
+                .id(recipe.getId())
                 .build();
     }
 
@@ -18,6 +20,15 @@ public class RecipeMapper {
                 .name(recipeDto.getName())
                 .description(recipeDto.getDescription())
                 .cookingTime(recipeDto.getCookingTime())
+                .build();
+    }
+
+    public static RecipeDisplayDto convertToDisplayDto(Recipe recipe)
+    {
+        return RecipeDisplayDto.builder()
+                .name(recipe.getName())
+                .description(recipe.getDescription())
+                .cookingTime(recipe.getCookingTime())
                 .build();
     }
 }

@@ -11,9 +11,9 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {OnlyLettersValidation.class})
-public @interface OnlyLetters {
-    String message() default Constants.ONLY_LETTERS_REQUIRED;
+@Constraint(validatedBy = {RatingValueValidation.class})
+public @interface RatingValue {
+    String message() default Constants.VALUE_OUT_OF_RANGE;
 
     Class<?>[] groups() default {};
 

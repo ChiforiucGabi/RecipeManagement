@@ -7,6 +7,7 @@ public class RecipeIngredientCountMapper {
     public static RecipeIngredientCountDto convertToDto(RecipeIngredientCount recipeIngredientCount){
         return RecipeIngredientCountDto.builder()
                 .count(recipeIngredientCount.getCount())
+                .ingredientId(recipeIngredientCount.getId())
                 .build();
     }
     public static RecipeIngredientCount convertToRecipeIngredientCount(RecipeIngredientCountDto recipeIngredientCountDto){

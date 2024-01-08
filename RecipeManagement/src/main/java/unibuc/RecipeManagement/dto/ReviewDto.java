@@ -8,17 +8,13 @@ import unibuc.RecipeManagement.constants.Constants;
 import unibuc.RecipeManagement.validator.OnlyLetters;
 import unibuc.RecipeManagement.validator.RatingValue;
 
-import java.util.List;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RecipeDto {
-    private Integer id;
-    @OnlyLetters(message = Constants.RECIPE_NAME_INVALID_FORMAT)
-    private String name;
-    private String description;
-    private Integer cookingTime;
-    private List<RecipeIngredientCountDto> ingredients;
+public class ReviewDto {
+    private String comment;
+    @RatingValue(message = Constants.VALUE_OUT_OF_RANGE)
+    private Integer rating;
+    private Integer recipeId;
 }

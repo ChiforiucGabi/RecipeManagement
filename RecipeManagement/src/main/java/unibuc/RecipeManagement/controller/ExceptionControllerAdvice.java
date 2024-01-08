@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import unibuc.RecipeManagement.exception.DataAlreadyInDatabaseException;
 import unibuc.RecipeManagement.exception.DataNotFoundException;
+import unibuc.RecipeManagement.exception.DuplicateRecipeTagException;
 
 import java.util.stream.Collectors;
 
@@ -32,7 +33,7 @@ public class ExceptionControllerAdvice {
                 .body(invalidFields);
     }
 
-    @ExceptionHandler({DataAlreadyInDatabaseException.class})
+    @ExceptionHandler({DataAlreadyInDatabaseException.class, DuplicateRecipeTagException.class})
     public ResponseEntity<String> handleDataAlreadyExists(Exception exception){
         System.out.println(exception.getMessage());
         return ResponseEntity.status(HttpStatus.CONFLICT)
